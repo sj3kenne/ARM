@@ -14,10 +14,6 @@ wb = open_workbook(toReadFile)
 for sheet in wb.sheets():
     numRows = sheet.numrows
     numCols = sheet.ncols
-
-    #customers = [[]]
-
-    row = []
     for row in range(1, numRows):
         values = []
         for col in range(numCols):
@@ -62,27 +58,26 @@ class JourneyObj:
 currentJourneys = oneItemList
 # My Way
 def myTry(allCustomers, k):
-    #length = k
+    length = k
     possibleItems = {}
     kItemList = []
-    for currJourney in currentJourneys:
-        for journey in allCustomers:
-            for idx, event in enumerate(journey):
-                if event not in oneItemList:
-                    continue
-                elif event in oneItemList:
-                    count = idx + 1
-                    i = 0
-                    itemToAdd = journey[count]
-                    while (count < len(journey)) and (itemToAdd in oneItemList) and (i < k):
-                        newJourney = currJourney
-                        newJourney.append(itemToAdd)
-                        if possibleItems[newJourney]:
-                            possibleItems[newJourney].increaseSupport()
-                        else:
-                            newJourneyObj = JourneyObj()
-                            newJourneyObj.events = [newJourney]
-                            possibleItems[newJourney] = newJourneyObj
+    for journey in allCustomers:
+        for idx, event in enumerate(journey):
+            if event not in oneItemList:
+                continue
+            elif (event in oneItemList):
+                i = idx + 1
+                count = 0
+                itemToAdd = journey[i]
+                while (i < len(journey)) and (itemToAdd in oneItemList) and (i < length):
+                    newJourney = event
+                    newJourney.append(itemToAdd)
+                    if possibleItems[newJourney]:
+                        possibleItems[newJourney].increaseSupport()
+                    else:
+                        newJourneyObj = JourneyObj()
+                        newJourneyObj.events = [newJourney]
+                        possibleItems[newJourney] = newJourneyObj
     for journeys in possibleItems:
         if (100 * journeys.getSupport/transactions ) >= minSupport:
             kItemList.append(journeys)
