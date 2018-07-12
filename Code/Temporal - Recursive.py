@@ -83,9 +83,11 @@ def addEventToJourney(journey, possibleItems, currJourney, count, length):
         count += 1
         if count < length:
             addEventToJourney(journey, possibleItems, currJourney, count, length)
-
-    elif count >= length):
-        break
+    elif (count >= length):
+        pass
+        #This needs to take into account that a possible journey is collected, and put it into possibleItems.
+        #It then needs to start on the next journey, (possibly starting from the same event), but not REDO 
+        #the journey it just completed.
     else:
         count += 1
         addEventToJourney(journey, possibleItems, currJourney, count, length)
