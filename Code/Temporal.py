@@ -6,6 +6,7 @@ confidence = int(raw_input("Support %: "))
 
 rawSet = {}
 transactions = 0
+customers = [
 # Read file
 wb = open_workbook('toReadFile')
 
@@ -13,21 +14,22 @@ for sheet in wb.sheets():
     numRows = sheets.numrows
     numCols = sheet.ncols
 
-    customers = [[]]
+    #customers = [[]]
 
     row = []
     for row in range(1, numRows):
         values = []
         for col in range(numCols):
-            value = sheet.cell(row,col).value)
+            value = (sheet.cell(row,col).value)
             try: 
                 value = str(value)
+                transactions += 1
             except ValueError:
                 pass
             finally: 
                 values.append(value)
         customers.append(values)
-
+#From https://stackoverflow.com/questions/22169325/read-excel-file-in-python
 
 
 oneItemList = []
@@ -44,13 +46,4 @@ for key in rawSet:
 # Find itemsets of length n, frequency minSupport
 itemsets = []
 for each in rawSet:
-
-
-
-
-
-
-
-
-
 
