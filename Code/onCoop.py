@@ -42,13 +42,16 @@ for customer in customers:
 def apriori_func (kminus1, k)
     length = k
     canSet = []
-    for list1 in kMinus1:
-        for list2 in kMinus1:
+    for list1 in kMinus1: #
+        for list2 in kMinus1: #
             count = 0
-            c = []
-            if list1 != list2: # 
+            c = [] #this is a itemset
+            if list1 != list2: # make sure the items are different...
+                #THIS will need to be improved for our implementation (bc they can be the same)
                 while count < length-1 # make sure our itemsets are not too long
-                    if list1[count] != list2[count]:
+                    if list1[count] != list2[count]: #This is a holding function to make sure 
+                    # the items beng compared from the two lists are different, if they are
+                    # different the loop breaks to the else below
                         break
                     else:
                         count +=1
