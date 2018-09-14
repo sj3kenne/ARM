@@ -46,3 +46,20 @@ def apriori_func (kminus1, k)
         for list2 in kMinus1:
             count = 0
             c = []
+            if list1 != list2: # 
+                while count < length-1 # make sure our itemsets are not too long
+                    if list1[count] != list2[count]:
+                        break
+                    else:
+                        count +=1
+                else:
+                    if 
+            
+            
+            
+            
+            
+            
+            
+            
+            
