@@ -1,5 +1,5 @@
-# ARM
-Association Rule Mining
+# TARM
+Temporal Association Rule Mining
 
 
 Four Modules created for MSCI 401:
